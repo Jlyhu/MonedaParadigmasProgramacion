@@ -126,9 +126,7 @@ public class Usuario {
      // - Método que no se puede sobrescribir: 'mostrarMensajeFinal()' declarado como 'final'.
      // - Clase que no se puede heredar: 'Griega' declarada como 'final'.
 
-
-
-    }
+   }
     
     //Actividad 6: punto 2 método que recibe un parámetro
   	public static void imprimirInformacionMoneda(Moneda moneda) {
