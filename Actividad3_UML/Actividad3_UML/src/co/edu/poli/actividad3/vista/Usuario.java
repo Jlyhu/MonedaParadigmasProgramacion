@@ -101,5 +101,45 @@ public class Usuario {
         System.out.println(monedaConmemorativa.obtenerInformacion("Evento nacional"));
         System.out.println(monedaGriega.obtenerInformacion("Hallada en excavación arqueológica"));
         
+        //Actividad 6: punto 1 Arreglo 
+        Moneda[] monedas = new Moneda[5];
+        monedas[0] = monedaAntigua;
+        monedas[1] = monedaConmemorativa;
+        monedas[2] = monedaGriega;
+
+        System.out.println("\n==SOBREESCRITURA DESDE ARREGLO==");
+        for (int i = 0; i < 3; i++) {
+            System.out.println(monedas[i].obtenerInformacion());
+        }
+        
+        //Actividad 6: punto 2 invocación métodos polimorfismo
+        
+        System.out.println("\n==POLIMORFISMO==");
+        imprimirInformacionMoneda(monedaGriega);
+
+        Moneda nuevaMoneda = crearMonedaEjemplo();
+        System.out.println("Moneda creada por método polimórfico: " + nuevaMoneda.obtenerInformacion());
+        
+     // Actividad 6: punto 3
+     // Los siguientes conceptos se aplicaron en la clase Griega (paquete co.edu.poli.actividad4.servicios):
+     // - Atributo que no se puede cambiar: 'region' declarado como 'final'.
+     // - Método que no se puede sobrescribir: 'mostrarMensajeFinal()' declarado como 'final'.
+     // - Clase que no se puede heredar: 'Griega' declarada como 'final'.
+
+
+
     }
+    
+    //Actividad 6: punto 2 método que recibe un parámetro
+  	public static void imprimirInformacionMoneda(Moneda moneda) {
+  	    System.out.println("Polimorfismo - Info: " + moneda.obtenerInformacion());
+  	}
+  	
+  	//Actividad 6: punto 2 método que retorna un tipo Moneda
+  	public static Moneda crearMonedaEjemplo() {
+  	    return new Conmemorativa("C002", "Cobre", "Pequeño", "1000", "Conmemorativa", "Común", "Moderna",
+  	                             2022, true, new Protector("P002", "Metal", "Estuche"),
+  	                             new Pais("MEX", "México"), false, "Aniversario");
+  	}
+
 }

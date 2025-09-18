@@ -145,6 +145,5 @@ public class Moneda {
 	    int anoActual = java.time.Year.now().getValue();
 	    return anoActual - this.anoCreacion;
 	}
-	
 
 }

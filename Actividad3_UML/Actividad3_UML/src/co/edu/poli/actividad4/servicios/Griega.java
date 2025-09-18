@@ -3,9 +3,12 @@ import co.edu.poli.actividad3.modelo.Antigua;
 import co.edu.poli.actividad3.modelo.Pais;
 import co.edu.poli.actividad3.modelo.Protector;
 
+// Actividad 6: Clase que no se puede heredar
+public final class Griega extends Antigua {
 
-public class Griega extends Antigua {
-    private String region;
+	// Actividad 6: Atributo que no se puede cambiar
+	private final String region;
+
     private String periodoHistorico;
 
     public Griega(String serial, String material, String tamano, String valor, String tipo, String rareza, String epoca,
@@ -18,12 +21,9 @@ public class Griega extends Antigua {
         this.periodoHistorico = periodoHistorico;
     }
 
+
     public String getRegion() {
         return region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
     }
 
     public String getPeriodoHistorico() {
@@ -32,6 +32,11 @@ public class Griega extends Antigua {
 
     public void setPeriodoHistorico(String periodoHistorico) {
         this.periodoHistorico = periodoHistorico;
+    }
+
+    // Actividad 6: Método que no se puede sobrescribir
+    public final void mostrarMensajeFinal() {
+        System.out.println("Este método no puede ser sobrescrito.");
     }
 
     @Override
@@ -45,3 +50,4 @@ public class Griega extends Antigua {
         return mostrarInformacion() + ", Detalle adicional: " + detalleExtra;
     }
 }
+
