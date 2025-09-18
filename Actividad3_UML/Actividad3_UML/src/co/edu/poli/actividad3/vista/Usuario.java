@@ -1,5 +1,6 @@
 package co.edu.poli.actividad3.vista;
 import co.edu.poli.actividad3.modelo.*;
+import co.edu.poli.actividad4.servicios.Griega;
 
 public class Usuario {
 
@@ -24,11 +25,6 @@ public class Usuario {
                 pais              // objeto Pais
             );
         
-        System.out.println(moneda.mostrarInformacion());
-        System.out.println("Año de creación de la moneda: " + moneda.calcularEdad());
-
-
-
         // certificado
         Certificado certificado = new Certificado("C001", "2023-05-10", "Banco Central", moneda);
 
@@ -44,12 +40,32 @@ public class Usuario {
         //Coleccionista
         Coleccionista coleccionista = new Coleccionista("C001", "Experto", "10 años", "Pepito");
         
-      //colección
+        //colección
         Moneda[] monedasColeccion = { moneda };
         Coleccion coleccion = new Coleccion("COL001", "Privado", "Histórica", monedasColeccion, coleccionista);
         
+        //sobreEscritura
+        Antigua monedaAntigua = new Antigua(
+        	    "A001", "Bronce", "Pequeño", "2000", "Histórica", "Muy rara", "Colonial",
+        	    1800, true, protector, pais,
+        	    "XIX", "Buena");
+        
+        Conmemorativa monedaConmemorativa = new Conmemorativa(
+        	    "C001", "Plata", "Grande", "3000", "Conmemorativa", "Rara", "Moderna",
+        	    2020, true, protector, pais,
+        	    true, "Independencia de Colombia");
+        
+        Griega monedaGriega = new Griega(
+        	    "G001", "Oro", "Mediano", "5000", "Histórica", "Única", "Antigua",
+        	    -300, true, protector, pais,
+        	    "IV a.C.", "Excelente",
+        	    "Atenas", "Clásico");
+
+
+        
         String resultadoBusqueda = coleccion.buscarMoneda("M001");
         System.out.println("Resultado de búsqueda: " + resultadoBusqueda);
+        System.out.println("Año de creación de la moneda: " + moneda.calcularEdadActual());
 
         System.out.println("\n=== INFORMACIÓN PAÍS ===");
         System.out.println(pais);
@@ -73,8 +89,17 @@ public class Usuario {
         System.out.println(coleccionista);
         
         System.out.println("\n=== INFORMACIÓN DE LA COLECCIÓN ===");
-        System.out.println(coleccion);       
-
+        System.out.println(coleccion);      
+                   
+        System.out.println("\n==SOBREESCRITURA==");
+        System.out.println(monedaAntigua.obtenerInformacion());
+        System.out.println(monedaGriega.obtenerInformacion());
+        System.out.println(monedaConmemorativa.obtenerInformacion());
+               
+        System.out.println("\n==SOBRECARGA==");
+        System.out.println(monedaAntigua.obtenerInformacion("Conservada en museo"));
+        System.out.println(monedaConmemorativa.obtenerInformacion("Evento nacional"));
+        System.out.println(monedaGriega.obtenerInformacion("Hallada en excavación arqueológica"));
         
     }
 }

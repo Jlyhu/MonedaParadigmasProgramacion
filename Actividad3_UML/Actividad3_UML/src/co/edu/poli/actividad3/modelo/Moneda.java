@@ -124,14 +124,27 @@ public class Moneda {
 				+ ", esAutentica=" + esAutentica + ", protector=" + protector + ", pais=" + pais + "]";
 	}
     
-    public String mostrarInformacion() {
-    	return "";
-    }
-    
-    public int calcularEdad() {
-        int anoActual = java.time.Year.now().getValue();
-        return anoActual - this.anoCreacion;
+	protected String mostrarInformacion() {
+	    return "Información básica de la moneda.";
+	}
+	
+	protected String mostrarInformacion(String detalleExtra) {
+	    return "Información con detalle: " + detalleExtra;
+	}
+	
+	public String obtenerInformacion() {
+        return mostrarInformacion();
     }
 
+    public String obtenerInformacion(String detalleExtra) {
+        return mostrarInformacion(detalleExtra);
+    }
+
+ 
+	public int calcularEdadActual() {
+	    int anoActual = java.time.Year.now().getValue();
+	    return anoActual - this.anoCreacion;
+	}
+	
 
 }
