@@ -22,7 +22,7 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD {
     /**
      * Capacidad inicial del arreglo.
      */
-    private int capacidadInicial = 10;
+    private int capacidadInicial = 3;
 
     /**
      * Constructor que inicializa el arreglo con la capacidad inicial.
