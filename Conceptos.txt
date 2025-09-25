@@ -1,0 +1,54 @@
+Método toString:
+Sobrescribe el método por defecto para representar un objeto como cadena de texto.
+Ejemplo: Clase Moneda, línea 121, donde se muestra toda la información del objeto.
+
+Modificador static:
+Indica que un método o atributo pertenece a la clase y no a una instancia específica.
+Ejemplo: Método documentarMonedas() en la clase Catalogo.
+
+Modificador final (atributo):
+Impide que el valor del atributo sea modificado después de su inicialización.
+Ejemplo: Atributo region en la clase Griega, línea 10. Se asigna en el constructor, línea 25, y no tiene método set.
+
+Modificador final (método):
+Evita que el método sea sobrescrito en clases hijas.
+Ejemplo: Método mostrarMensajeFinal() en la clase Griega, línea 38. Este método imprime un mensaje y no puede ser modificado por subclases.
+
+Modificador final (clase):
+Impide que la clase sea heredada.
+Ejemplo: Clase Griega declarada como final, línea 7. Ninguna otra clase puede extenderla.
+
+Visibilidades:
+Controlan el acceso a los atributos y métodos (public, private, protected).
+Ejemplo: Se aplican en las clases Moneda, Antigua, Griega, donde se usan private para atributos, public para métodos de acceso y protected para métodos heredables.
+
+Multiplicidades:
+Representan la cantidad de objetos relacionados.
+Ejemplo: Arreglo Moneda[] en la clase Usuario, línea 105, del método main, donde se almacenan múltiples monedas.
+
+Sobreescritura de métodos:
+Permite redefinir un método heredado en una subclase.
+Ejemplo: Método mostrarInformacion() sobrescrito en las clases Antigua, línea 31, Conmemorativa, línea 31, y Griega, línea 42, adaptando el comportamiento según el tipo de moneda. Se evidencia en el main al invocar obtenerInformacion().
+
+Sobrecarga de métodos:
+Permite definir varios métodos con el mismo nombre pero diferentes parámetros.
+Ejemplo: Método mostrarInformacion(String) en la clase Moneda y sus subclases. Se evidencia en el main al invocar obtenerInformacion().
+
+Creación de objetos:
+Instanciación de clases para generar objetos.
+Ejemplo: En el método main de la clase Usuario, líneas 9 a 58, se crean objetos de tipo Moneda, Antigua, Griega, Protector, Pais, Certificado, Valoracion, Catalogo, Coleccionista, Coleccion.
+
+Agregaciones:
+Relación donde una clase contiene objetos de otras clases.
+Ejemplo: Clase Moneda contiene objetos de tipo Protector y Pais, lo que representa una relación de agregación.
+
+Herencia:
+Permite que una clase hija herede atributos y métodos de una clase padre.
+Ejemplo: Clases Antigua, Conmemorativa, Griega heredan de Moneda o Antigua, reutilizando y extendiendo su funcionalidad.
+
+Polimorfismo:
+Permite que métodos se comporten de forma diferente según el objeto que los invoque.
+Ejemplo: Métodos imprimirInformacionMoneda(Moneda) y crearMonedaEjemplo() en la clase Usuario, líneas 133 a 143. Se evidencia al invocar estos métodos con diferentes tipos de monedas.
+
+Repositorio GitHub:
+https://github.com/Jlyhu/MonedaParadigmasProgramacion.git

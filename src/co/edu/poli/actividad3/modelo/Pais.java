@@ -1,0 +1,55 @@
+/**
+ * Clase que representa un país con un identificador único y un nombre.
+ * Esta clase se utiliza para asociar monedas u otros elementos con su país de origen.
+ * 
+ * @author Juliana
+ * @version 1.0
+ */
+package co.edu.poli.actividad3.modelo;
+
+public class Pais {
+    private String idPais; // Identificador único del país
+    private String nombre; // Nombre del país
+
+    /**
+     * Constructor que inicializa los atributos del país.
+     * 
+     * @param idPais Identificador único del país
+     * @param nombre Nombre del país
+     */
+    public Pais(String idPais, String nombre) {
+        super();
+        this.idPais = idPais;
+        this.nombre = nombre;
+    }
+
+    /** @return el identificador del país */
+    public String getIdPais() {
+        return idPais;
+    }
+
+    /** @param idPais el nuevo identificador del país */
+    public void setIdPais(String idPais) {
+        this.idPais = idPais;
+    }
+
+    /** @return el nombre del país */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /** @param nombre el nuevo nombre del país */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * Devuelve una representación en cadena del país.
+     * 
+     * @return una cadena con la información del país
+     */
+    @Override
+    public String toString() {
+        return "Pais [idPais=" + idPais + ", nombre=" + nombre + "]";
+    }
+}
