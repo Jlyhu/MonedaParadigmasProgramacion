@@ -1,4 +1,5 @@
 package co.edu.poli.actividad3.modelo;
+
 /**
  * Clase que representa una colección de monedas perteneciente a un coleccionista.
  * Contiene información sobre el identificador de la colección, el tipo de acceso,

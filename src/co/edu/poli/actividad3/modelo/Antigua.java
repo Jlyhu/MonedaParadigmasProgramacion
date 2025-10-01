@@ -8,6 +8,7 @@ package co.edu.poli.actividad3.modelo;
  * @author Juliana
  * @version 1.0
  */
+
 public class Antigua extends Moneda {
     private String siglo;
     private String estadoConservacion;
