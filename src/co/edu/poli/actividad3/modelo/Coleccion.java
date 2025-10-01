@@ -1,3 +1,4 @@
+package co.edu.poli.actividad3.modelo;
 /**
  * Clase que representa una colección de monedas perteneciente a un coleccionista.
  * Contiene información sobre el identificador de la colección, el tipo de acceso,
@@ -6,7 +7,7 @@
  * @author Juliana
  * @version 1.0
  */
-package co.edu.poli.actividad3.modelo;
+
 
 import java.util.Arrays;
 

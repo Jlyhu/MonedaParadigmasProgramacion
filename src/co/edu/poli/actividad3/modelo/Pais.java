@@ -1,3 +1,4 @@
+package co.edu.poli.actividad3.modelo;
 /**
  * Clase que representa un país con un identificador único y un nombre.
  * Esta clase se utiliza para asociar monedas u otros elementos con su país de origen.
@@ -5,7 +6,6 @@
  * @author Juliana
  * @version 1.0
  */
-package co.edu.poli.actividad3.modelo;
 
 public class Pais {
     private String idPais; // Identificador único del país

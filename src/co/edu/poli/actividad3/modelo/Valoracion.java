@@ -1,3 +1,4 @@
+package co.edu.poli.actividad3.modelo;
 /**
  * Clase que representa una valoración realizada sobre una moneda.
  * Contiene información sobre el identificador de la valoración, el tipo de valoración,
@@ -6,7 +7,7 @@
  * @author Juliana
  * @version 1.0
  */
-package co.edu.poli.actividad3.modelo;
+
 
 public class Valoracion {
     private String idValoracion; // Identificador único de la valoración

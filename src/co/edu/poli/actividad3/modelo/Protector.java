@@ -1,3 +1,4 @@
+package co.edu.poli.actividad3.modelo;
 /**
  * Clase que representa un protector utilizado para resguardar una moneda.
  * Contiene información sobre el identificador del protector, el material del que está hecho
@@ -6,7 +7,7 @@
  * @author Juliana
  * @version 1.0
  */
-package co.edu.poli.actividad3.modelo;
+
 
 public class Protector {
     private String idProtector; // Identificador único del protector

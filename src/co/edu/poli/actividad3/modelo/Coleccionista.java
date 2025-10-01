@@ -1,5 +1,17 @@
 package co.edu.poli.actividad3.modelo;
 
+/**
+ * Representa un coleccionista dentro del sistema de gestión de monedas.
+ * Un coleccionista tiene un identificador único, un tipo (por ejemplo,
+ * aficionado, profesional), un nivel de experiencia y un nombre.
+ * 
+ * Esta clase permite crear instancias de coleccionistas y acceder o modificar
+ * sus atributos principales.
+ * 
+ * @author Juliana
+ * @version 1.0
+ */
+
 public class Coleccionista {
 	private String idColeccionista;
 	private String tipo;
