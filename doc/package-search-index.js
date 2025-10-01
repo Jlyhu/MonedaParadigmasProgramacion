@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"Actividad3_UML","l":"co.edu.poli.actividad3.modelo"},{"m":"Actividad3_UML","l":"co.edu.poli.actividad3.vista"},{"m":"Actividad3_UML","l":"co.edu.poli.actividad4.servicios"}];updateSearchResults();
