@@ -1,5 +1,7 @@
 package co.edu.poli.actividad3.modelo;
 
+import java.io.Serializable;
+
 /**
  * Representa un coleccionista dentro del sistema de gestión de monedas.
  * Un coleccionista tiene un identificador único, un tipo (por ejemplo,
@@ -10,7 +12,7 @@ package co.edu.poli.actividad3.modelo;
  * @version 1.0
  */
 
-public class Coleccionista {
+public class Coleccionista implements Serializable {
 	private String idColeccionista;
 	private String tipo;
 	private String experiencia;

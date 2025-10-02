@@ -1,4 +1,6 @@
 package co.edu.poli.actividad3.vista;
+import java.util.Scanner;
+
 import co.edu.poli.actividad3.modelo.*;
 import co.edu.poli.actividad4.servicios.Griega;
 import co.edu.poli.actividad4.servicios.ImplementacionOperacionCRUD;
@@ -182,7 +184,155 @@ public class Usuario {
         System.out.println("\nEliminar moneda con serial 'A001':");
         Moneda eliminada = crud.delete("A001");
         System.out.println(eliminada != null ? "Moneda eliminada: " + eliminada.obtenerInformacion() : "No encontrada");
-    
+        
+        
+
+        
+     // ACTIVIDAD 8
+        Scanner scanner1 = new Scanner(System.in);
+        ImplementacionOperacionCRUD crud1 = new ImplementacionOperacionCRUD();
+        final String PATH = "."; // o una carpeta específica
+        final String NOMBRE_ARCHIVO1 = "monedas.dat";
+
+        // Cargar datos al iniciar
+        Moneda[] monedasCargadas1 = crud1.deserializar(PATH, NOMBRE_ARCHIVO1);
+        if (monedasCargadas1 != null) {
+            crud1.setMonedas(monedasCargadas1);
+        }
+
+        int opcion1;
+        do {
+            System.out.println("\n--- MENÚ DE GESTIÓN DE MONEDAS (ACTIVIDAD 8) ---");
+            System.out.println("1. Crear Objeto (Moneda Conmemorativa)");
+            System.out.println("2. Listar todos los Objetos");
+            System.out.println("3. Listar un Objeto por Serial");
+            System.out.println("4. Modificar un Objeto");
+            System.out.println("5. Eliminar un Objeto");
+            System.out.println("6. Guardar en Archivo");
+            System.out.println("7. Cargar desde Archivo");
+            System.out.println("8. Salir del menú");
+            System.out.print("Seleccione una opción: ");
+            
+            opcion1 = scanner1.nextInt();
+            scanner1.nextLine(); // Consumir el salto de línea
+
+            switch (opcion1) {
+            	case 1: // CREATE
+            		System.out.println("\n--- CREAR NUEVA MONEDA CONMEMORATIVA ---");
+            		String serial1 = leerCampoObligatorio(scanner1, "Serial (Ej: C003): ");
+            		String material1 = leerCampoObligatorio(scanner1, "Material (Ej: Plata): ");
+            		String tamano1 = leerCampoObligatorio(scanner1, "Tamaño (Ej: Grande): ");
+            		String valor1 = leerCampoObligatorio(scanner1, "Valor (Ej: 5000): ");
+                
+            		System.out.print("Año de creación (Ej: 2022): ");
+            		int anoCreacion1 = scanner1.nextInt();
+            		scanner1.nextLine();
+            		
+            		Protector protectorDefault1 = new Protector("P-DEF", "Acrílico", "Cápsula");
+            		Pais paisDefault1 = new Pais("DEF", "Desconocido");
+
+            		Moneda nuevaMoneda1 = new Conmemorativa(serial1, material1, tamano1, valor1, "Conmemorativa", "Común", "Moderna",
+                        anoCreacion1, true, protectorDefault1, paisDefault1, false, "Sin evento");
+
+            		String mensajeCreate1 = crud1.create(nuevaMoneda1);
+            		System.out.println(mensajeCreate1);
+            		break;
+                case 2: // READ ALL
+                    System.out.println("\n--- LISTADO DE TODAS LAS MONEDAS ---");
+                    Moneda[] todas1 = crud1.read();
+                    boolean encontradas1 = false;
+                    for (Moneda m : todas1) {
+                        if (m != null) {
+                            System.out.println(m.obtenerInformacion());
+                            System.out.println();
+                            encontradas1 = true;
+                        }
+                    }
+                    if (!encontradas1) {
+                        System.out.println(">> No hay monedas en la colección.");
+                    }
+                    break;
+                case 3: // READ ONE
+                    System.out.println("\n--- BUSCAR MONEDA POR SERIAL ---");
+                    System.out.print("Ingrese el serial a buscar: ");
+                    String serialBusqueda1 = scanner1.nextLine();
+                    Moneda encontrada1 = crud1.readId(serialBusqueda1);
+                    if (encontrada1 != null) {
+                        System.out.println(encontrada1.obtenerInformacion());
+                    } else {
+                        System.out.println(">> Moneda con serial '" + serialBusqueda1 + "' no encontrada.");
+                    }
+                    break;
+                case 4: // UPDATE
+                    System.out.println("\n--- ACTUALIZAR MONEDA ---");
+                    String serialUpdate1 = leerCampoObligatorio(scanner1, "Ingrese el serial de la moneda a modificar: ");
+
+                    if (crud1.readId(serialUpdate1) != null) {
+                        System.out.println("Ingrese los nuevos datos (5 campos primitivos):");
+                        String materialUpd1 = leerCampoObligatorio(scanner1, "Nuevo Material: ");
+                        String tamanoUpd1 = leerCampoObligatorio(scanner1, "Nuevo Tamaño: ");
+                        String valorUpd1 = leerCampoObligatorio(scanner1, "Nuevo Valor: ");
+                        
+                        System.out.print("Nuevo Año de creación: ");
+                        int anoUpd1 = scanner1.nextInt();
+                        scanner1.nextLine();
+
+                        Protector pUpd1 = new Protector("P-UPD", "Acrílico", "Cápsula");
+                        Pais paUpd1 = new Pais("UPD", "Desconocido");
+
+                        Moneda monedaActualizada1 = new Conmemorativa(serialUpdate1, materialUpd1, tamanoUpd1, valorUpd1, "Conmemorativa", "Común", "Moderna",
+                                anoUpd1, true, pUpd1, paUpd1, false, "Actualizado");
+
+                        String mensajeUpdate1 = crud1.update(serialUpdate1, monedaActualizada1);
+                        System.out.println(mensajeUpdate1);
+                    } else {
+                        System.out.println(">> No se encontró moneda con ese serial.");
+                    }
+                    break;
+                    
+                case 5: // DELETE                    
+                	System.out.println("\n--- ELIMINAR MONEDA ---");
+                	
+
+                	// Mostrar seriales disponibles
+                	    System.out.println("Seriales disponibles:");
+                	    for (Moneda m : crud1.read()) {
+                	        if (m != null) {
+                	            System.out.println("- " + m.getSerial());
+                	        }
+                	    }
+
+                    System.out.print("Ingrese el serial de la moneda a eliminar: ");
+                    String serialDelete1 = scanner1.nextLine();
+                    Moneda eliminada1 = crud1.delete(serialDelete1);
+                    if (eliminada1 != null) {
+                        System.out.println(">> Moneda eliminada exitosamente: " + eliminada1.getSerial());
+                    } else {
+                        System.out.println(">> Moneda no encontrada.");
+                    }
+                    break;
+                case 6: // GUARDAR
+                    String mensajeGuardar = crud1.serializar(crud1.read(), PATH, NOMBRE_ARCHIVO1);
+                    System.out.println(mensajeGuardar);
+                    break;
+
+                case 7: // CARGAR
+                    Moneda[] cargadas1 = crud1.deserializar(PATH, NOMBRE_ARCHIVO1);
+                    if (cargadas1 != null) {
+                        crud1.setMonedas(cargadas1);
+                        System.out.println(">> Archivo cargado correctamente.");
+                    }
+                    break;
+                case 8: // SALIR
+                    System.out.println("\nSaliendo del menú...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+            }
+        } while (opcion1 != 8);
+        
+        scanner1.close(); 
+       
     }
     
     /**
@@ -206,6 +356,19 @@ public class Usuario {
   	                             2022, true, new Protector("P002", "Metal", "Estuche"),
   	                             new Pais("MEX", "México"), false, "Aniversario");
   	}
+  	
+  //Campos vacios actividad 8
+    public static String leerCampoObligatorio(Scanner scanner, String mensaje) {
+        String entrada;
+        do {
+            System.out.print(mensaje);
+            entrada = scanner.nextLine().trim();
+            if (entrada.isEmpty()) {
+                System.out.println(">> Este campo no puede estar vacío. Intente de nuevo.");
+            }
+        } while (entrada.isEmpty());
+        return entrada;
+    }
 
   	
 }

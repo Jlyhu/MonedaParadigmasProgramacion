@@ -1,4 +1,5 @@
 package co.edu.poli.actividad3.modelo;
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Arrays;
  * @version 1.0
  */
 
-public class Coleccion {
+public class Coleccion implements Serializable {
     private String idColeccion; // Identificador único de la colección
     private String acceso; // Tipo de acceso (público, privado, etc.)
     private String tipo; // Tipo de colección (temática, histórica, etc.)

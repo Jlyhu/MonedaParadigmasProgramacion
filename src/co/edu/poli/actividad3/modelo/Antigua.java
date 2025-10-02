@@ -1,5 +1,7 @@
 package co.edu.poli.actividad3.modelo;
 
+import java.io.Serializable;
+
 /**
  * Clase que representa una moneda antigua.
  * Extiende la clase abstracta Moneda y añade características específicas
@@ -9,7 +11,7 @@ package co.edu.poli.actividad3.modelo;
  * @version 1.0
  */
 
-public class Antigua extends Moneda {
+public class Antigua extends Moneda implements Serializable {
     private String siglo;
     private String estadoConservacion;
 

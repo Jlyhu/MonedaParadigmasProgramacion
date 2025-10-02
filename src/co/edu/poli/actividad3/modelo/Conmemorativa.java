@@ -38,8 +38,15 @@ public class Conmemorativa extends Moneda {
     @Override
     protected String mostrarInformacion() {
         String edicion = esEdicionLimitada ? "Edición Limitada" : "Edición Regular";
-        return "Moneda Conmemorativa - Evento: " + evento + " (" + edicion + "), Año: " + anoCreacion + 
-               ", País: " + (pais != null ? pais.getNombre() : "N/A");
+        return "Evento: " + evento + 
+        		"\n(" + edicion + ")" + 
+               "\nPaís: " + (pais != null ? pais.getNombre() : "N/A")+
+               "\nSerial: " + serial +
+               "\nMaterial: " + material +
+               "\nTamaño: " + tamano +
+               "\nValor: " + valor +
+               "\nAño de creación: " + anoCreacion;
+
     }
 
     @Override

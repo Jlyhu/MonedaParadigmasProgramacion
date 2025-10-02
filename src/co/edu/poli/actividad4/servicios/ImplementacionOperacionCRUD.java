@@ -1,18 +1,19 @@
 package co.edu.poli.actividad4.servicios;
 
+import java.io.*;
 import co.edu.poli.actividad3.modelo.Moneda;
 
 /**
- * Implementación de las operaciones CRUD sobre un arreglo de tipo Moneda.
+ * Implementación de las operaciones CRUD y de archivo sobre un arreglo de tipo Moneda.
  * <p>
- * Utiliza un arreglo estático que se expande dinámicamente para permitir
- * almacenamiento infinito de objetos Moneda.
+ * Esta clase permite gestionar objetos Moneda en memoria y también guardarlos/cargarlos
+ * desde un archivo binario mediante serialización.
  * </p>
  * 
  * @author Juliana
- * @version 1.0
+ * @version 2.0
  */
-public class ImplementacionOperacionCRUD implements OperacionCRUD {
+public class ImplementacionOperacionCRUD implements OperacionCRUD, OperacionArchivo {
 
     /**
      * Arreglo de monedas que actúa como almacenamiento en memoria.
@@ -31,13 +32,8 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD {
         monedas = new Moneda[capacidadInicial];
     }
 
-    /**
-     * Inserta una moneda en el primer espacio disponible del arreglo.
-     * Si el arreglo está lleno, se expande automáticamente.
-     *
-     * @param objeto Moneda a insertar
-     * @return Mensaje indicando la posición donde fue agregada
-     */
+    // -------------------- MÉTODOS CRUD --------------------
+
     @Override
     public String create(Moneda objeto) {
         for (int i = 0; i < monedas.length; i++) {
@@ -54,22 +50,11 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD {
         return "Moneda agregada en nueva posición " + monedas.length;
     }
 
-    /**
-     * Devuelve el arreglo completo de monedas.
-     *
-     * @return Arreglo de monedas
-     */
     @Override
     public Moneda[] read() {
         return monedas;
     }
 
-    /**
-     * Busca una moneda por su serial.
-     *
-     * @param id Serial de la moneda
-     * @return Moneda encontrada o null si no existe
-     */
     @Override
     public Moneda readId(String id) {
         for (Moneda m : monedas) {
@@ -80,13 +65,6 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD {
         return null;
     }
 
-    /**
-     * Actualiza una moneda existente por su serial.
-     *
-     * @param id Serial de la moneda a actualizar
-     * @param objeto Nueva moneda con los datos actualizados
-     * @return Mensaje indicando el resultado de la operación
-     */
     @Override
     public String update(String id, Moneda objeto) {
         for (int i = 0; i < monedas.length; i++) {
@@ -98,12 +76,6 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD {
         return "Moneda con serial " + id + " no encontrada.";
     }
 
-    /**
-     * Elimina una moneda por su serial.
-     *
-     * @param id Serial de la moneda a eliminar
-     * @return Moneda eliminada o null si no se encontró
-     */
     @Override
     public Moneda delete(String id) {
         for (int i = 0; i < monedas.length; i++) {
@@ -114,5 +86,42 @@ public class ImplementacionOperacionCRUD implements OperacionCRUD {
             }
         }
         return null;
+    }
+
+    /**
+     * Reemplaza el arreglo de monedas interno. Se utiliza para cargar datos desde un archivo.
+     * 
+     * @param nuevasMonedas El nuevo arreglo de monedas que reemplazará al existente.
+     */
+    public void setMonedas(Moneda[] nuevasMonedas) {
+        this.monedas = nuevasMonedas;
+    }
+
+    // -------------------- MÉTODOS DE ARCHIVO --------------------
+
+    @Override
+    public String serializar(Moneda[] monedas, String path, String name) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path + File.separator + name))) {
+            oos.writeObject(monedas);
+            return ">> Archivo '" + name + "' guardado exitosamente en '" + path + "'";
+        } catch (IOException e) {
+            return "Error al guardar el archivo: " + e.getMessage();
+        }
+    }
+
+    @Override
+    public Moneda[] deserializar(String path, String name) {
+        File archivo = new File(path + File.separator + name);
+        if (!archivo.exists()) {
+            System.out.println(">> El archivo no existe. Se comenzará con una lista vacía.");
+            return new Moneda[10];
+        }
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
+            return (Moneda[]) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Error al cargar el archivo: " + e.getMessage());
+            return null;
+        }
     }
 }

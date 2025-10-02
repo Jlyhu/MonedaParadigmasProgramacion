@@ -1,5 +1,7 @@
 package co.edu.poli.actividad3.modelo;
 
+import java.io.Serializable;
+
 /**
  * Representa un certificado de autenticidad o validación asociado a una moneda.
  * <p>
@@ -10,7 +12,7 @@ package co.edu.poli.actividad3.modelo;
  * @author Juliana
  * @version 1.0
  */
-public class Certificado {
+public class Certificado implements Serializable {
 
     /**
      * Identificador único del certificado.

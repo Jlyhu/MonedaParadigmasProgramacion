@@ -1,4 +1,7 @@
 package co.edu.poli.actividad3.modelo;
+
+import java.io.Serializable;
+
 /**
  * Clase que representa un protector utilizado para resguardar una moneda.
  * Contiene información sobre el identificador del protector, el material del que está hecho
@@ -8,7 +11,7 @@ package co.edu.poli.actividad3.modelo;
  */
 
 
-public class Protector {
+public class Protector implements Serializable {
     private String idProtector; // Identificador único del protector
     private String material;    // Material del protector (plástico, vidrio, etc.)
     private String tipo;        // Tipo de protector

@@ -1,4 +1,7 @@
 package co.edu.poli.actividad3.modelo;
+
+import java.io.Serializable;
+
 /**
  * Clase que representa un país con un identificador único y un nombre.
  * Esta clase se utiliza para asociar monedas u otros elementos con su país de origen.
@@ -6,7 +9,7 @@ package co.edu.poli.actividad3.modelo;
  * @version 1.0
  */
 
-public class Pais {
+public class Pais implements Serializable{
     private String idPais; // Identificador único del país
     private String nombre; // Nombre del país
 

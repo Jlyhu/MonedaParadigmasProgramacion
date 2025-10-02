@@ -1,4 +1,5 @@
 package co.edu.poli.actividad3.modelo;
+import java.io.Serializable;
 
 /**
  * Clase abstracta que representa una moneda en el sistema de gestión.
@@ -8,7 +9,8 @@ package co.edu.poli.actividad3.modelo;
  * @version 1.0
  */
 
-public abstract class Moneda {
+
+public abstract class Moneda implements Serializable {
     protected String serial;
     protected String material;
     protected String tamano;

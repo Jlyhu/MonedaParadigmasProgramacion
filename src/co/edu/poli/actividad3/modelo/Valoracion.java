@@ -1,4 +1,7 @@
 package co.edu.poli.actividad3.modelo;
+
+import java.io.Serializable;
+
 /**
  * Clase que representa una valoración realizada sobre una moneda.
  * Contiene información sobre el identificador de la valoración, el tipo de valoración,
@@ -8,7 +11,7 @@ package co.edu.poli.actividad3.modelo;
  */
 
 
-public class Valoracion {
+public class Valoracion implements Serializable {
     private String idValoracion; // Identificador único de la valoración
     private String tipo;         // Tipo de valoración (histórica, económica, estética, etc.)
     private String presicion;    // Nivel de precisión de la valoración

@@ -1,5 +1,6 @@
 package co.edu.poli.actividad3.modelo;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Arrays;
  * @author Juliana
  * @version 1.0
  */
-public class Catalogo {
+public class Catalogo implements Serializable {
 
     /**
      * Identificador único del catálogo.
