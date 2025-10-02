@@ -87,7 +87,7 @@ public class Usuario {
         System.out.println("Resultado de búsqueda: " + resultadoBusqueda);
         System.out.println("Año de creación de la moneda: " + moneda.calcularEdadActual());
 
-        System.out.println("\n=== INFORMACIÓN PAÍS ===");
+        System.out.println("\n=== INFORMACIN PAS ===");
         System.out.println(pais);
         
         System.out.println("\n=== INFORMACIÓN PROTECTOR ===");
@@ -102,7 +102,7 @@ public class Usuario {
         System.out.println("\n=== INFORMACIÓN DE LA VALORACIÓN ===");
         System.out.println(valoracion);
 
-        System.out.println("\n=== INFORMACIÓN DEL CATÁLOGO ===");
+        System.out.println("\n=== INFORMACION DEL CATALOGO ===");
         System.out.println(catalogo);
 
         System.out.println("\n=== INFORMACIÓN DEL COLECCIONISTA ===");

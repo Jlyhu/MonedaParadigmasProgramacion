@@ -1,5 +1,4 @@
 package co.edu.poli.actividad4.servicios;
-
 import co.edu.poli.actividad3.modelo.Moneda;
 
 /**
@@ -7,7 +6,6 @@ import co.edu.poli.actividad3.modelo.Moneda;
  * para un arreglo de objetos de tipo Moneda.
  */
 public interface OperacionArchivo {
-
     /**
      * Serializa (guarda) un arreglo de monedas en un archivo binario.
      * @param monedas El arreglo de monedas a guardar.
