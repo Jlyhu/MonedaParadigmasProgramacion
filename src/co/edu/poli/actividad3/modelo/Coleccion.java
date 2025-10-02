@@ -1,4 +1,5 @@
 package co.edu.poli.actividad3.modelo;
+import java.util.Arrays;
 
 /**
  * Clase que representa una colección de monedas perteneciente a un coleccionista.
@@ -8,9 +9,6 @@ package co.edu.poli.actividad3.modelo;
  * @author Juliana
  * @version 1.0
  */
-
-
-import java.util.Arrays;
 
 public class Coleccion {
     private String idColeccion; // Identificador único de la colección
@@ -28,6 +26,7 @@ public class Coleccion {
      * @param moneda        Arreglo de monedas que pertenecen a la colección
      * @param coleccionista Coleccionista propietario de la colección
      */
+    
     public Coleccion(String idColeccion, String acceso, String tipo, Moneda[] moneda, Coleccionista coleccionista) {
         super();
         this.idColeccion = idColeccion;
@@ -37,54 +36,83 @@ public class Coleccion {
         this.coleccionista = coleccionista;
     }
 
-    /** @return el identificador de la colección */
+    /**
+     * Retorna el identificador único de la colección.
+     * @return el identificador de la colección 
+     */
+    
     public String getIdColeccion() {
         return idColeccion;
     }
 
-    /** @param idColeccion el nuevo identificador de la colección */
+    /**
+     * Establece un nuevo identificador único para la colección.
+     * @param idColeccion el nuevo identificador de la colección 
+     */
     public void setIdColeccion(String idColeccion) {
         this.idColeccion = idColeccion;
     }
 
-    /** @return el tipo de acceso de la colección */
+
+    /**
+     * Retorna el tipo de acceso de la colección (público, privado, etc.).
+     * @return el tipo de acceso de la colección 
+     */
     public String getAcceso() {
         return acceso;
     }
 
-    /** @param acceso el nuevo tipo de acceso de la colección */
+    /**
+     * Establece el tipo de acceso de la colección.
+     * @param acceso el nuevo tipo de acceso de la colección 
+     */
+    
     public void setAcceso(String acceso) {
         this.acceso = acceso;
     }
 
-    /** @return el tipo de colección */
+    /**
+     * Retorna el tipo o tema de la colección.
+     * @return el tipo de colección 
+     */
     public String getTipo() {
         return tipo;
     }
 
-    /** @param tipo el nuevo tipo de colección */
+    /**
+     * Establece el tipo o tema de la colección.
+     * @param tipo el nuevo tipo de colección 
+     */
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    /** @return el arreglo de monedas de la colección */
+    /**
+     * Retorna el arreglo de objetos Moneda que componen la colección.
+     * @return el arreglo de monedas de la colección 
+     */
     public Moneda[] getMoneda() {
         return moneda;
     }
 
-    /** @param moneda el nuevo arreglo de monedas de la colección */
+    /**
+     * Establece el arreglo de objetos Moneda de la colección.
+     * @param moneda el nuevo arreglo de monedas de la colección 
+     */
     public void setMoneda(Moneda[] moneda) {
         this.moneda = moneda;
     }
 
-    /** @param coleccionista el nuevo coleccionista propietario de la colección */
+    /**
+     * Establece el coleccionista propietario de esta colección.
+     * @param coleccionista el nuevo coleccionista propietario de la colección 
+     */
     public void setColeccionista(Coleccionista coleccionista) {
         this.coleccionista = coleccionista;
     }
-
+    
     /**
      * Devuelve una representación en cadena de la colección, incluyendo sus atributos.
-     * 
      * @return una cadena con la información de la colección
      */
     @Override
@@ -95,7 +123,6 @@ public class Coleccion {
 
     /**
      * Busca una moneda en la colección por su identificador (serial).
-     * 
      * @param idMoneda el identificador de la moneda a buscar
      * @return la información de la moneda si se encuentra, o un mensaje indicando que no fue encontrada
      */

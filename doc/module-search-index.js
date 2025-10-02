@@ -1,1 +1,1 @@
-moduleSearchIndex = [{"l":"Actividad3_UML"}];updateSearchResults();
+moduleSearchIndex = [];updateSearchResults();

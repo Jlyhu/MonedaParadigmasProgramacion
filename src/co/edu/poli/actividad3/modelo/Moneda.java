@@ -4,10 +4,10 @@ package co.edu.poli.actividad3.modelo;
  * Clase abstracta que representa una moneda en el sistema de gestión.
  * Sirve como clase base para diferentes tipos específicos de monedas.
  * Contiene los atributos y métodos comunes a todas las monedas.
- * 
- * @author Juliana
+ * *@author Juliana
  * @version 1.0
  */
+
 public abstract class Moneda {
     protected String serial;
     protected String material;

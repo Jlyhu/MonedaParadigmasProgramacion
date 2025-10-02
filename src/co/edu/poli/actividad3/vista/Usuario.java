@@ -3,8 +3,33 @@ import co.edu.poli.actividad3.modelo.*;
 import co.edu.poli.actividad4.servicios.Griega;
 import co.edu.poli.actividad4.servicios.ImplementacionOperacionCRUD;
 
-public class Usuario {
+/**
+ * Clase principal que contiene el método {@code main} para ejecutar
+ * la aplicación de gestión de monedas y coleccionistas.
+ * 
+ * Desde aquí se crean instancias de las clases del modelo
+ * y se realizan pruebas de funcionamiento.
+ * 
+ * @author Juliana
+ * @version 1.0
+ */
 
+public class Usuario {
+	
+	/**
+     * Constructor por defecto de la clase Usuario.
+     * Es implícitamente invocado al crear la aplicación.
+     */
+	
+	public Usuario() {
+        // Constructor intencionalmente vacío.
+    }
+    
+    /**
+     * Método principal que inicia la ejecución del programa.
+     * @param args argumentos de línea de comandos (no utilizados en esta versión)
+     */ 
+	
     public static void main(String[] args) {
     	//Protector
     	 Protector protector = new Protector("P001", "Plástico", "Caja");
@@ -160,11 +185,21 @@ public class Usuario {
     
     }
     
+    /**
+     * Imprime en consola la información de una moneda.
+     * @param moneda objeto de tipo {@link Moneda} cuya información se mostrará
+     */
+    
     //Actividad 6: punto 2 método que recibe un parámetro
   	public static void imprimirInformacionMoneda(Moneda moneda) {
   	    System.out.println("Polimorfismo - Info: " + moneda.obtenerInformacion());
   	}
   	
+  	/**
+  	 * Crea y devuelve un objeto {@link Moneda} de ejemplo con valores predefinidos.
+  	 * @return una moneda de ejemplo
+  	 */
+  	  	
   	//Actividad 6: punto 2 método que retorna un tipo Moneda
   	public static Moneda crearMonedaEjemplo() {
   	    return new Conmemorativa("C002", "Cobre", "Pequeño", "1000", "Conmemorativa", "Común", "Moderna",

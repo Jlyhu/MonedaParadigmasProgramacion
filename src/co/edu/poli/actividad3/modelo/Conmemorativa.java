@@ -4,8 +4,7 @@ package co.edu.poli.actividad3.modelo;
  * Clase que representa una moneda conmemorativa.
  * Extiende la clase abstracta Moneda y añade características específicas
  * para monedas que conmemoran eventos especiales.
- * 
- * @author Juliana
+ * * @author Juliana
  * @version 1.0
  */
 public class Conmemorativa extends Moneda {
@@ -14,7 +13,6 @@ public class Conmemorativa extends Moneda {
 
     /**
      * Constructor parametrizado de la clase Conmemorativa.
-     * 
      * @param serial Número de serie único de la moneda
      * @param material Material de fabricación
      * @param tamano Tamaño de la moneda
@@ -50,8 +48,28 @@ public class Conmemorativa extends Moneda {
     }
 
     // Getters y Setters
+    
+    /**
+     * Verifica si la moneda conmemorativa es una edición limitada.
+     * @return true si es edición limitada, false en caso contrario.
+     */
     public boolean isEsEdicionLimitada() { return esEdicionLimitada; }
+    
+    /**
+     * Establece si la moneda conmemorativa es una edición limitada.
+     * @param esEdicionLimitada El nuevo estado de edición limitada.
+     */
     public void setEsEdicionLimitada(boolean esEdicionLimitada) { this.esEdicionLimitada = esEdicionLimitada; }
+    
+    /**
+     * Obtiene la descripción del evento que conmemora la moneda.
+     * @return El evento conmemorado.
+     */
     public String getEvento() { return evento; }
+    
+    /**
+     * Establece el evento que conmemora la moneda.
+     * @param evento El nuevo evento conmemorado.
+     */
     public void setEvento(String evento) { this.evento = evento; }
 }

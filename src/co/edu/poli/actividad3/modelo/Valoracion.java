@@ -3,8 +3,7 @@ package co.edu.poli.actividad3.modelo;
  * Clase que representa una valoración realizada sobre una moneda.
  * Contiene información sobre el identificador de la valoración, el tipo de valoración,
  * el nivel de precisión y la moneda a la que se le aplica dicha valoración.
- * 
- * @author Juliana
+ * * @author Juliana
  * @version 1.0
  */
 
@@ -17,7 +16,6 @@ public class Valoracion {
 
     /**
      * Constructor que inicializa todos los atributos de la clase Valoracion.
-     * 
      * @param idValoracion Identificador único de la valoración
      * @param tipo         Tipo de valoración
      * @param presicion    Nivel de precisión de la valoración
@@ -31,49 +29,72 @@ public class Valoracion {
         this.moneda = moneda;
     }
 
-    /** @return el identificador de la valoración */
+    /**
+     * Obtiene el identificador único de la valoración.
+     * @return el identificador de la valoración 
+     */
     public String getIdValoracion() {
         return idValoracion;
     }
 
-    /** @param idValoracion el nuevo identificador de la valoración */
+    /**
+     * Establece un nuevo identificador único para la valoración.
+     * @param idValoracion el nuevo identificador de la valoración 
+     */
     public void setIdValoracion(String idValoracion) {
         this.idValoracion = idValoracion;
     }
 
-    /** @return el tipo de valoración */
+    /**
+     * Obtiene el tipo de valoración.
+     * @return el tipo de valoración 
+     */
     public String getTipo() {
         return tipo;
     }
 
-    /** @param tipo el nuevo tipo de valoración */
+    /**
+     * Establece el nuevo tipo de valoración.
+     * @param tipo el nuevo tipo de valoración 
+     */
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    /** @return el nivel de precisión de la valoración */
+    /**
+     * Obtiene el nivel de precisión de la valoración.
+     * @return el nivel de precisión de la valoración 
+     */
     public String getPresicion() {
         return presicion;
     }
 
-    /** @param presicion el nuevo nivel de precisión de la valoración */
+    /**
+     * Establece el nivel de precisión de la valoración.
+     * @param presicion el nuevo nivel de precisión de la valoración 
+     */
     public void setPresicion(String presicion) {
         this.presicion = presicion;
     }
 
-    /** @return la moneda valorada */
+    /**
+     * Obtiene la moneda a la que se le aplicó esta valoración.
+     * @return la moneda valorada 
+     */
     public Moneda getMoneda() {
         return moneda;
     }
 
-    /** @param moneda la nueva moneda valorada */
+    /**
+     * Establece la nueva moneda a la que se aplicará la valoración.
+     * @param moneda la nueva moneda valorada 
+     */
     public void setMoneda(Moneda moneda) {
         this.moneda = moneda;
     }
 
     /**
      * Devuelve una representación en cadena de la valoración.
-     * 
      * @return una cadena con la información de la valoración
      */
     @Override

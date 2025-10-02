@@ -50,8 +50,30 @@ public class Antigua extends Moneda {
     }
 
     // Getters y Setters
+    
+    /**
+     * Obtiene el siglo al que pertenece la moneda antigua.
+     * @return El siglo de la moneda.
+     */
+    
     public String getSiglo() { return siglo; }
+    
+    /**
+     * Establece el siglo al que pertenece la moneda antigua.
+     * @param siglo El nuevo siglo de la moneda.
+     */
+    
     public void setSiglo(String siglo) { this.siglo = siglo; }
+    
+    /**
+     * Obtiene el estado de conservación de la moneda.
+     * @return El estado de conservación.
+     */
     public String getEstadoConservacion() { return estadoConservacion; }
+    
+    /**
+     * Establece el estado de conservación de la moneda.
+     * @param estadoConservacion El nuevo estado de conservación.
+     */
     public void setEstadoConservacion(String estadoConservacion) { this.estadoConservacion = estadoConservacion; }
 }
