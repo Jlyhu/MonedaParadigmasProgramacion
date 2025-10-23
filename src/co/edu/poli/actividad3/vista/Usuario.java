@@ -1,4 +1,5 @@
 package co.edu.poli.actividad3.vista;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import co.edu.poli.actividad3.modelo.*;
@@ -211,10 +212,17 @@ public class Usuario {
             System.out.println("6. Guardar en Archivo");
             System.out.println("7. Cargar desde Archivo");
             System.out.println("8. Salir del menú");
-            System.out.print("Seleccione una opción: ");
             
-            opcion1 = scanner1.nextInt();
-            scanner1.nextLine(); // Consumir el salto de línea
+            try {
+                System.out.print("Seleccione una opción: ");
+                opcion1 = scanner1.nextInt();
+                scanner1.nextLine(); // Consumir salto de línea
+            } catch (InputMismatchException e) {
+                System.out.println(">> Entrada inválida. Debe ingresar un número.");
+                scanner1.nextLine(); // Limpiar el buffer
+                opcion1 = -1; // Valor inválido para que repita el menú
+                continue;
+            }
 
             switch (opcion1) {
             	case 1: // CREATE
@@ -224,9 +232,18 @@ public class Usuario {
             		String tamano1 = leerCampoObligatorio(scanner1, "Tamaño (Ej: Grande): ");
             		String valor1 = leerCampoObligatorio(scanner1, "Valor (Ej: 5000): ");
                 
-            		System.out.print("Año de creación (Ej: 2022): ");
-            		int anoCreacion1 = scanner1.nextInt();
-            		scanner1.nextLine();
+            		int anoCreacion1 = 0; // Declaración fuera del try
+
+            		try {
+            		    System.out.print("Año de creación (Ej: 2022): ");
+            		    anoCreacion1 = scanner1.nextInt();
+            		    scanner1.nextLine();
+            		} catch (InputMismatchException e) {
+            		    System.out.println(">> Entrada inválida. Debe ingresar un número para el año.");
+            		    scanner1.nextLine(); // Limpiar el buffer
+            		    break; // Salir del case para no continuar con datos inválidos
+            		}
+
             		
             		Protector protectorDefault1 = new Protector("P-DEF", "Acrílico", "Cápsula");
             		Pais paisDefault1 = new Pais("DEF", "Desconocido");
@@ -272,10 +289,17 @@ public class Usuario {
                         String materialUpd1 = leerCampoObligatorio(scanner1, "Nuevo Material: ");
                         String tamanoUpd1 = leerCampoObligatorio(scanner1, "Nuevo Tamaño: ");
                         String valorUpd1 = leerCampoObligatorio(scanner1, "Nuevo Valor: ");
-                        
-                        System.out.print("Nuevo Año de creación: ");
-                        int anoUpd1 = scanner1.nextInt();
-                        scanner1.nextLine();
+
+                        int anoUpd1 = 0; // Declarar fuera del try
+                        try {
+                            System.out.print("Nuevo Año de creación: ");
+                            anoUpd1 = scanner1.nextInt();
+                            scanner1.nextLine();
+                        } catch (InputMismatchException e) {
+                            System.out.println(">> Entrada inválida. Debe ingresar un número para el año.");
+                            scanner1.nextLine(); // Limpiar el buffer
+                            break;
+                        }
 
                         Protector pUpd1 = new Protector("P-UPD", "Acrílico", "Cápsula");
                         Pais paUpd1 = new Pais("UPD", "Desconocido");
@@ -358,17 +382,27 @@ public class Usuario {
   	}
   	
   //Campos vacios actividad 8
-    public static String leerCampoObligatorio(Scanner scanner, String mensaje) {
-        String entrada;
-        do {
-            System.out.print(mensaje);
-            entrada = scanner.nextLine().trim();
-            if (entrada.isEmpty()) {
-                System.out.println(">> Este campo no puede estar vacío. Intente de nuevo.");
-            }
-        } while (entrada.isEmpty());
-        return entrada;
-    }
+  	public static String leerCampoObligatorio(Scanner scanner, String mensaje) {
+  	    String entrada = "";
+  	    boolean valido = false;
+
+  	    while (!valido) {
+  	        try {
+  	            System.out.print(mensaje);
+  	            entrada = scanner.nextLine().trim();
+
+  	            if (entrada.isEmpty()) {
+  	                throw new Exception(">> Este campo no puede estar vacío.");
+  	            }
+
+  	            valido = true; // Solo se llega aquí si no hubo excepción
+  	        } catch (Exception e) {
+  	            System.out.println(e.getMessage());
+  	        }
+  	    }
+
+  	    return entrada;
+  	}
 
   	
 }
